@@ -3,8 +3,8 @@
  *
  * Uso en el proyecto (junto a Tailwind v4):
  *   @import "tailwindcss";
- *   @import "library-components-react/theme.css";
- *   @source "../node_modules/library-components-react/dist";
+ *   @import "trigreact/theme.css";
+ *   @source "../node_modules/trigreact/dist";
  *
  * Para personalizar el tema basta con sobrescribir las variables:
  *   :root { --color-primary: #0f766e; }

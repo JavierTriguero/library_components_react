@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # subir la versión y crear tags
+      pull-requests: write # abrir la PR «Versión de paquetes»
+      id-token: write # trusted publishing en npm (sin token guardado)
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Si hay changesets pendientes, abre/actualiza la PR de versión.
+      # Si no los hay (se acaba de mergear esa PR), publica en npm.
+      - uses: changesets/action@v2
+        with:
+          publish-script: npm run release
+          commit-message: 'chore: versión de paquetes'
+          pr-title: 'chore: versión de paquetes'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
