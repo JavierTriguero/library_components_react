@@ -9,7 +9,13 @@ export default {
     description: 'Todo lo que necesitas para tu equipo.',
     children: <p className="text-sm">Usuarios ilimitados, soporte prioritario y 100 GB de almacenamiento.</p>,
   },
-  decorators: [(Story) => <div className="max-w-sm"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="max-w-sm">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Default = {};

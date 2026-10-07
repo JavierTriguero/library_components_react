@@ -1,4 +1,10 @@
 /* Solo para Storybook: simula el Tailwind que tendrá el proyecto del usuario. */
-@import "tailwindcss";
-@import "../theme.css";
+@import 'tailwindcss';
+@import '../theme.css';
 @source "../src";
+
+/* Fondo del lienzo acorde al tema (claro u oscuro según el sistema). */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}

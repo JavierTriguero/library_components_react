@@ -4,7 +4,13 @@ export default {
   title: 'Componentes/Input',
   component: Input,
   args: { label: 'Email', placeholder: 'tu@email.com', type: 'email' },
-  decorators: [(Story) => <div className="max-w-sm"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="max-w-sm">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Default = {};

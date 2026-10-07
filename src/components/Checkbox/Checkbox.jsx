@@ -15,10 +15,7 @@ import { cn } from '../../utils/cn.js';
  * @param {boolean} [props.disabled]
  * @param {string} [props.className] Clases adicionales para el contenedor.
  */
-export const Checkbox = forwardRef(function Checkbox(
-  { label, description, disabled, className, ...props },
-  ref,
-) {
+export const Checkbox = forwardRef(function Checkbox({ label, description, disabled, className, ...props }, ref) {
   return (
     <Field disabled={disabled} className={cn('flex items-start gap-3', className)}>
       <HeadlessCheckbox

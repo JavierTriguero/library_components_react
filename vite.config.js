@@ -6,12 +6,8 @@ import pkg from './package.json' with { type: 'json' };
 
 // Todo lo que sea dependency o peerDependency se queda fuera del bundle:
 // lo instala el proyecto que consume la librería.
-const externals = [
-  ...Object.keys(pkg.dependencies ?? {}),
-  ...Object.keys(pkg.peerDependencies ?? {}),
-];
-const isExternal = (id) =>
-  externals.some((dep) => id === dep || id.startsWith(`${dep}/`));
+const externals = [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})];
+const isExternal = (id) => externals.some((dep) => id === dep || id.startsWith(`${dep}/`));
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
@@ -29,5 +25,10 @@ export default defineConfig({
       // Los componentes usan estado y efectos: en Next.js (App Router) deben ser Client Components.
       output: { banner: "'use client';" },
     },
+  },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.js'],
+    include: ['src/**/*.test.{js,jsx}'],
   },
 });

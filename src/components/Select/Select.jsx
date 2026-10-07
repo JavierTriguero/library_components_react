@@ -1,12 +1,4 @@
-import {
-  Description,
-  Field,
-  Label,
-  Listbox,
-  ListboxButton,
-  ListboxOption,
-  ListboxOptions,
-} from '@headlessui/react';
+import { Description, Field, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { cn } from '../../utils/cn.js';
 
 /**
@@ -48,18 +40,14 @@ export function Select({
   return (
     <Field disabled={disabled} className={cn('flex flex-col gap-1.5', className)}>
       {label && <Label className="text-sm font-medium text-foreground data-disabled:opacity-50">{label}</Label>}
-      <Listbox
-        value={value}
-        defaultValue={defaultValue}
-        onChange={onChange}
-        name={name}
-        invalid={Boolean(error)}
-      >
+      <Listbox value={value} defaultValue={defaultValue} onChange={onChange} name={name} invalid={Boolean(error)}>
         {({ value: selected }) => {
           const selectedOption = options.find((option) => option.value === selected);
           return (
             <>
               <ListboxButton
+                // Headless UI solo añade data-invalid; aria-invalid lo anuncia a los lectores de pantalla.
+                aria-invalid={error ? true : undefined}
                 className={cn(
                   'relative flex w-full cursor-pointer items-center justify-between gap-2 rounded-md bg-background py-2 pr-2 pl-3 text-left text-sm shadow-sm',
                   'ring-1 ring-inset ring-border',
@@ -101,9 +89,7 @@ export function Select({
           );
         }}
       </Listbox>
-      {description && !error && (
-        <Description className="text-sm text-muted-foreground">{description}</Description>
-      )}
+      {description && !error && <Description className="text-sm text-muted-foreground">{description}</Description>}
       {error && <Description className="text-sm text-danger">{error}</Description>}
     </Field>
   );

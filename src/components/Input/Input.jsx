@@ -13,10 +13,7 @@ import { cn } from '../../utils/cn.js';
  * @param {boolean} [props.disabled]
  * @param {string} [props.className] Clases adicionales para el contenedor.
  */
-export const Input = forwardRef(function Input(
-  { label, description, error, disabled, className, ...props },
-  ref,
-) {
+export const Input = forwardRef(function Input({ label, description, error, disabled, className, ...props }, ref) {
   return (
     <Field disabled={disabled} className={cn('flex flex-col gap-1.5', className)}>
       {label && <Label className="text-sm font-medium text-foreground data-disabled:opacity-50">{label}</Label>}
@@ -32,9 +29,7 @@ export const Input = forwardRef(function Input(
         )}
         {...props}
       />
-      {description && !error && (
-        <Description className="text-sm text-muted-foreground">{description}</Description>
-      )}
+      {description && !error && <Description className="text-sm text-muted-foreground">{description}</Description>}
       {error && <Description className="text-sm text-danger">{error}</Description>}
     </Field>
   );

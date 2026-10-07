@@ -2,6 +2,31 @@ import { useState } from 'react';
 import { Button } from '../Button/Button.jsx';
 import { Modal } from './Modal.jsx';
 
+function ModalDemo(args) {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Abrir modal</Button>
+      <Modal
+        {...args}
+        open={open}
+        onClose={close}
+        footer={
+          <>
+            <Button variant="secondary" onClick={close}>
+              Cancelar
+            </Button>
+            <Button variant="danger" onClick={close}>
+              Eliminar
+            </Button>
+          </>
+        }
+      />
+    </>
+  );
+}
+
 export default {
   title: 'Componentes/Modal',
   component: Modal,
@@ -13,26 +38,7 @@ export default {
   argTypes: {
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
   },
-  render: (args) => {
-    const [open, setOpen] = useState(false);
-    const close = () => setOpen(false);
-    return (
-      <>
-        <Button onClick={() => setOpen(true)}>Abrir modal</Button>
-        <Modal
-          {...args}
-          open={open}
-          onClose={close}
-          footer={
-            <>
-              <Button variant="secondary" onClick={close}>Cancelar</Button>
-              <Button variant="danger" onClick={close}>Eliminar</Button>
-            </>
-          }
-        />
-      </>
-    );
-  },
+  render: (args) => <ModalDemo {...args} />,
 };
 
 export const Default = {};

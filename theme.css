@@ -27,3 +27,32 @@
   --color-border: oklch(87.2% 0.01 258.338);
   --color-ring: oklch(51.1% 0.262 276.966);
 }
+
+/*
+ * Modo oscuro: se activa automáticamente según la preferencia del sistema.
+ * Va en la capa `theme` para que cualquier variable que el usuario redefina
+ * (sin capa) tenga siempre prioridad, también en modo oscuro.
+ */
+@layer theme {
+  @media (prefers-color-scheme: dark) {
+    :root,
+    :host {
+      --color-primary: oklch(58.5% 0.233 277.117);
+      --color-primary-hover: oklch(67.3% 0.182 276.935);
+      --color-primary-foreground: oklch(100% 0 0);
+
+      --color-danger: oklch(63.7% 0.237 25.331);
+      --color-danger-hover: oklch(70.4% 0.191 22.216);
+      --color-danger-foreground: oklch(100% 0 0);
+
+      --color-background: oklch(21% 0.034 264.665);
+      --color-foreground: oklch(98.5% 0.002 247.839);
+
+      --color-muted: oklch(27.8% 0.033 256.848);
+      --color-muted-foreground: oklch(70.7% 0.022 261.325);
+
+      --color-border: oklch(37.3% 0.034 259.733);
+      --color-ring: oklch(67.3% 0.182 276.935);
+    }
+  }
+}
