@@ -2,5 +2,39 @@ import { expect, it } from 'vitest';
 import * as library from './index.js';
 
 it('exporta la API pública de la librería', () => {
-  expect(Object.keys(library).sort()).toEqual(['Button', 'Card', 'Checkbox', 'Input', 'Modal', 'Select']);
+  expect(Object.keys(library).sort()).toEqual([
+    'Avatar',
+    'AvatarGroup',
+    'Badge',
+    'BlockUI',
+    'Button',
+    'ButtonGroup',
+    'Card',
+    'Checkbox',
+    'Chip',
+    'Divider',
+    'Fieldset',
+    'Inplace',
+    'Input',
+    'Knob',
+    'Message',
+    'MeterGroup',
+    'Modal',
+    'Panel',
+    'ProgressBar',
+    'ProgressSpinner',
+    'RadioGroup',
+    'Rating',
+    'ScrollPanel',
+    'ScrollTop',
+    'Select',
+    'SelectButton',
+    'Skeleton',
+    'Slider',
+    'Switch',
+    'Tag',
+    'Textarea',
+    'ToggleButton',
+    'Toolbar',
+  ]);
 });

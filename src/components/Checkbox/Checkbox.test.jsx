@@ -50,6 +50,11 @@ describe('Checkbox', () => {
     expect(screen.getByRole('checkbox')).toHaveAttribute('aria-disabled', 'true');
   });
 
+  it('indeterminate se anuncia como estado mixto', () => {
+    render(<Checkbox label="Seleccionar todo" indeterminate />);
+    expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'mixed');
+  });
+
   it('no tiene problemas de accesibilidad', async () => {
     const { container } = render(<Checkbox label="Acepto" description="Detalles" defaultChecked />);
     expect(await axeViolations(container)).toEqual([]);

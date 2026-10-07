@@ -18,6 +18,15 @@
   --color-danger-hover: oklch(63.7% 0.237 25.331);
   --color-danger-foreground: oklch(100% 0 0);
 
+  --color-success: oklch(52.7% 0.154 150.069);
+  --color-success-foreground: oklch(100% 0 0);
+
+  --color-warning: oklch(76.9% 0.188 70.08);
+  --color-warning-foreground: oklch(21% 0.034 264.665);
+
+  --color-info: oklch(50% 0.134 242.749);
+  --color-info-foreground: oklch(100% 0 0);
+
   --color-background: oklch(100% 0 0);
   --color-foreground: oklch(21% 0.034 264.665);
 
@@ -26,6 +35,17 @@
 
   --color-border: oklch(87.2% 0.01 258.338);
   --color-ring: oklch(51.1% 0.262 276.966);
+
+  --animate-progress-indeterminate: progress-indeterminate 1.5s ease-in-out infinite;
+
+  @keyframes progress-indeterminate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(400%);
+    }
+  }
 }
 
 /*
@@ -44,6 +64,15 @@
       --color-danger: oklch(63.7% 0.237 25.331);
       --color-danger-hover: oklch(70.4% 0.191 22.216);
       --color-danger-foreground: oklch(100% 0 0);
+
+      --color-success: oklch(72.3% 0.219 149.579);
+      --color-success-foreground: oklch(21% 0.034 264.665);
+
+      --color-warning: oklch(82.8% 0.189 84.429);
+      --color-warning-foreground: oklch(21% 0.034 264.665);
+
+      --color-info: oklch(68.5% 0.169 237.323);
+      --color-info-foreground: oklch(21% 0.034 264.665);
 
       --color-background: oklch(21% 0.034 264.665);
       --color-foreground: oklch(98.5% 0.002 247.839);
