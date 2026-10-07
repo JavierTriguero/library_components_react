@@ -12,14 +12,14 @@ export default {
 };
 
 export const Initials = {};
-export const WithImage = { args: { image: 'https://i.pravatar.cc/150?img=5' } };
+export const WithImage = { args: { image: '/avatars/avatar-5.svg' } };
 export const Icon = { args: { label: undefined, alt: 'Usuario' } };
 export const Group = {
   render: () => (
     <AvatarGroup>
-      <Avatar image="https://i.pravatar.cc/150?img=1" alt="Persona 1" />
-      <Avatar image="https://i.pravatar.cc/150?img=2" alt="Persona 2" />
-      <Avatar image="https://i.pravatar.cc/150?img=3" alt="Persona 3" />
+      <Avatar image="/avatars/avatar-1.svg" alt="Persona 1" />
+      <Avatar image="/avatars/avatar-2.svg" alt="Persona 2" />
+      <Avatar image="/avatars/avatar-3.svg" alt="Persona 3" />
       <Avatar label="+4" alt="4 personas más" />
     </AvatarGroup>
   ),

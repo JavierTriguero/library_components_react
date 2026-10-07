@@ -1,0 +1,34 @@
+name: Chromatic
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  visual-tests:
+    runs-on: ubuntu-latest
+    # Si el secreto no existe (p. ej. PRs desde forks), el paso se omite sin fallar.
+    env:
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # TurboSnap necesita el historial para saber qué historias han cambiado
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Publicar Storybook y comparar capturas
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        uses: chromaui/action@v18.11.0
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          # Solo captura las historias afectadas por los cambios (TurboSnap).
+          onlyChanged: true
+          # Los cambios visuales no rompen el CI: se revisan y aprueban en Chromatic (check «UI Tests»).
+          exitZeroOnChanges: true
+          # Lo que llega a main ya se revisó en su PR: pasa a ser la nueva referencia.
+          autoAcceptChanges: main

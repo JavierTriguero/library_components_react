@@ -53,7 +53,8 @@
     "prepack": "npm run build",
     "check:package": "publint",
     "changeset": "changeset",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "chromatic": "chromatic --build-script-name build-storybook --exit-zero-on-changes"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -65,8 +66,10 @@
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
+    "@chromatic-com/storybook": "^5.4.0",
     "@eslint/js": "^9.39.5",
     "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
     "@storybook/addon-vitest": "^10.6.1",
     "@storybook/react-vite": "^10.6.1",
     "@tailwindcss/vite": "^4.3.3",
@@ -77,6 +80,7 @@
     "@vitest/browser-playwright": "^4.1.11",
     "@vitest/coverage-v8": "^4.1.11",
     "axe-core": "^4.14.0",
+    "chromatic": "^18.11.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",

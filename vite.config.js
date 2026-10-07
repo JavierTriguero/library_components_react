@@ -38,7 +38,7 @@ export default defineConfig({
           name: 'unit',
           environment: 'jsdom',
           setupFiles: ['./src/test/setup.js'],
-          include: ['src/**/*.test.{js,jsx}'],
+          include: ['src/**/*.test.{js,jsx}', '.storybook/**/*.test.js'],
         },
       },
       {
