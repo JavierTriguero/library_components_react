@@ -1,0 +1,29 @@
+/*
+ * Tokens de diseño de la librería.
+ *
+ * Uso en el proyecto (junto a Tailwind v4):
+ *   @import "tailwindcss";
+ *   @import "library-components-react/theme.css";
+ *   @source "../node_modules/library-components-react/dist";
+ *
+ * Para personalizar el tema basta con sobrescribir las variables:
+ *   :root { --color-primary: #0f766e; }
+ */
+@theme {
+  --color-primary: oklch(51.1% 0.262 276.966);
+  --color-primary-hover: oklch(58.5% 0.233 277.117);
+  --color-primary-foreground: oklch(100% 0 0);
+
+  --color-danger: oklch(57.7% 0.245 27.325);
+  --color-danger-hover: oklch(63.7% 0.237 25.331);
+  --color-danger-foreground: oklch(100% 0 0);
+
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(21% 0.034 264.665);
+
+  --color-muted: oklch(96.7% 0.003 264.542);
+  --color-muted-foreground: oklch(55.1% 0.027 264.364);
+
+  --color-border: oklch(87.2% 0.01 258.338);
+  --color-ring: oklch(51.1% 0.262 276.966);
+}

@@ -1,0 +1,4 @@
+/* Solo para Storybook: simula el Tailwind que tendrá el proyecto del usuario. */
+@import "tailwindcss";
+@import "../theme.css";
+@source "../src";

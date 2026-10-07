@@ -1,0 +1,49 @@
+{
+  "name": "library-components-react",
+  "version": "0.0.0",
+  "description": "Librería de componentes React construida con Tailwind CSS y Headless UI",
+  "type": "module",
+  "files": [
+    "dist",
+    "theme.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./theme.css": "./theme.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.10"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.6.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "storybook": "^10.6.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.3"
+  }
+}
