@@ -12,3 +12,4 @@ export const WithDescription = {
   args: { label: 'Newsletter', description: 'Recibe novedades una vez al mes.' },
 };
 export const Disabled = { args: { disabled: true, defaultChecked: true } };
+export const Indeterminate = { args: { label: 'Seleccionar todo', indeterminate: true } };

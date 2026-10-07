@@ -11,6 +11,7 @@ import { cn } from '../../utils/cn.js';
  * @param {boolean} [props.checked] Estado controlado.
  * @param {boolean} [props.defaultChecked] Estado inicial (no controlado).
  * @param {(checked: boolean) => void} [props.onChange] Recibe el nuevo estado.
+ * @param {boolean} [props.indeterminate] Estado mixto (p. ej. «seleccionar todo» con selección parcial).
  * @param {string} [props.name] Nombre para envío en formularios.
  * @param {boolean} [props.disabled]
  * @param {string} [props.className] Clases adicionales para el contenedor.
@@ -23,7 +24,7 @@ export const Checkbox = forwardRef(function Checkbox({ label, description, disab
         className={cn(
           'group mt-0.5 flex size-4 shrink-0 cursor-pointer items-center justify-center rounded',
           'bg-background ring-1 ring-inset ring-border',
-          'data-checked:bg-primary data-checked:ring-primary',
+          'data-checked:bg-primary data-checked:ring-primary data-indeterminate:bg-primary data-indeterminate:ring-primary',
           'data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-ring',
           'data-disabled:cursor-not-allowed data-disabled:opacity-50',
         )}
@@ -33,9 +34,17 @@ export const Checkbox = forwardRef(function Checkbox({ label, description, disab
           viewBox="0 0 14 14"
           fill="none"
           aria-hidden="true"
-          className="hidden size-3 stroke-primary-foreground group-data-checked:block"
+          className="hidden size-3 stroke-primary-foreground group-data-checked:block group-data-indeterminate:hidden"
         >
           <path d="M3 8L6 11L11 3.5" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <svg
+          viewBox="0 0 14 14"
+          fill="none"
+          aria-hidden="true"
+          className="hidden size-3 stroke-primary-foreground group-data-indeterminate:block"
+        >
+          <path d="M3 7H11" strokeWidth={2} strokeLinecap="round" />
         </svg>
       </HeadlessCheckbox>
       {(label || description) && (

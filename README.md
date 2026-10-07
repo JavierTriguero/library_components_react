@@ -45,14 +45,67 @@ export function App() {
 
 ## Componentes
 
-| Componente | Props principales                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------------- |
-| `Button`   | `variant` (`primary` · `secondary` · `danger`), `size` (`sm` · `md` · `lg`)                                |
-| `Input`    | `label`, `description`, `error`, `disabled` y cualquier prop de `<input>`                                  |
-| `Checkbox` | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`, `disabled`                      |
-| `Select`   | `options` (`{ value, label, disabled? }[]`), `value` / `defaultValue`, `onChange(value)`, `label`, `error` |
-| `Modal`    | `open`, `onClose`, `title`, `description`, `footer`, `size` (`sm` · `md` · `lg`)                           |
-| `Card`     | `title`, `description`, `footer`                                                                           |
+Puedes verlos todos funcionando en Storybook (`npm run storybook`).
+
+### Formulario
+
+| Componente     | Props principales                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------- |
+| `Input`        | `label`, `description`, `error`, `disabled` y cualquier prop de `<input>`                                  |
+| `Textarea`     | `label`, `description`, `error`, `autoResize` y cualquier prop de `<textarea>`                             |
+| `Select`       | `options` (`{ value, label, disabled? }[]`), `value` / `defaultValue`, `onChange(value)`, `label`, `error` |
+| `Checkbox`     | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`, `indeterminate`                 |
+| `RadioGroup`   | `options`, `value` / `defaultValue`, `onChange(value)`, `label`, `error`, `orientation`                    |
+| `Switch`       | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`                                  |
+| `SelectButton` | `options`, `value` / `defaultValue`, `onChange(value)`, `multiple`                                         |
+| `ToggleButton` | `checked` / `defaultChecked`, `onChange(checked)`, `onLabel`, `offLabel`, `onIcon`, `offIcon`              |
+| `Rating`       | `value` / `defaultValue`, `onChange(value)`, `stars`, `cancel`, `readOnly`                                 |
+| `Slider`       | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `range`, `label`, `showValue`           |
+| `Knob`         | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `size`, `valueTemplate`                 |
+
+### Botones
+
+| Componente    | Props principales                                                           |
+| ------------- | --------------------------------------------------------------------------- |
+| `Button`      | `variant` (`primary` · `secondary` · `danger`), `size` (`sm` · `md` · `lg`) |
+| `ButtonGroup` | `aria-label`; une varios `Button` en un bloque                              |
+
+### Paneles y estructura
+
+| Componente    | Props principales                                                                |
+| ------------- | -------------------------------------------------------------------------------- |
+| `Card`        | `title`, `description`, `footer`                                                 |
+| `Panel`       | `header`, `icons`, `footer`, `toggleable`, `collapsed` / `defaultCollapsed`      |
+| `Fieldset`    | `legend`, `toggleable`, `collapsed` / `defaultCollapsed`                         |
+| `Toolbar`     | `start`, `center`, `end`                                                         |
+| `Divider`     | `orientation`, `type` (`solid` · `dashed` · `dotted`), `align`, `children`       |
+| `ScrollPanel` | `aria-label`; define la altura con `className`                                   |
+| `Modal`       | `open`, `onClose`, `title`, `description`, `footer`, `size` (`sm` · `md` · `lg`) |
+
+### Visualización y estado
+
+| Componente        | Props principales                                              |
+| ----------------- | -------------------------------------------------------------- |
+| `Avatar`          | `image`, `label`, `icon`, `alt`, `size`, `shape`               |
+| `AvatarGroup`     | agrupa varios `Avatar`                                         |
+| `Badge`           | `value`, `severity`, `size`; sin `value` se muestra como punto |
+| `Tag`             | `value`, `icon`, `severity`, `rounded`                         |
+| `Chip`            | `label`, `image`, `icon`, `removable`, `onRemove`              |
+| `Message`         | `severity`, `title`, `text`, `icon`, `onClose`                 |
+| `ProgressBar`     | `value` (sin valor es indeterminada), `showValue`, `severity`  |
+| `ProgressSpinner` | `size`, `label`                                                |
+| `MeterGroup`      | `values` (`{ label, value, severity?, color? }[]`), `max`      |
+| `Skeleton`        | `shape`, `width`, `height`, `size`, `animation`                |
+
+### Utilidades
+
+| Componente  | Props principales                                                         |
+| ----------- | ------------------------------------------------------------------------- |
+| `BlockUI`   | `blocked`, `fullScreen`, `template`; el contenido bloqueado queda `inert` |
+| `Inplace`   | `display`, `children`, `active` / `defaultActive`, `closable`             |
+| `ScrollTop` | `target` (`window` · `parent`), `threshold`, `behavior`                   |
+
+`severity` acepta `primary`, `secondary`, `success`, `info`, `warning` y `danger`.
 
 Todos aceptan `className` para añadir clases propias. Las props están documentadas con JSDoc, así que tu editor las mostrará al autocompletar.
 
@@ -108,6 +161,9 @@ Sobrescribe las variables después de importar el tema:
 | ------------------------------------------- | -------------------------------- |
 | `--color-primary`, `-hover`, `-foreground`  | Acción principal y su texto      |
 | `--color-danger`, `-hover`, `-foreground`   | Acciones destructivas y errores  |
+| `--color-success`, `-foreground`            | Confirmaciones                   |
+| `--color-warning`, `-foreground`            | Avisos                           |
+| `--color-info`, `-foreground`               | Información                      |
 | `--color-background`, `--color-foreground`  | Fondo y texto de los componentes |
 | `--color-muted`, `--color-muted-foreground` | Fondos suaves y texto secundario |
 | `--color-border`, `--color-ring`            | Bordes y anillo de foco          |
