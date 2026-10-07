@@ -186,8 +186,9 @@ Se activa automáticamente cuando el sistema del usuario está en modo oscuro (`
 
 ```bash
 npm install
+npx playwright install chromium   # una vez: navegador para los tests de las historias
 npm run storybook   # catálogo de componentes en http://localhost:6006
-npm test            # tests (Vitest + Testing Library + axe)
+npm test            # tests unitarios (jsdom) y de cada historia en Chromium, con accesibilidad (axe)
 npm run lint        # ESLint
 npm run format      # Prettier
 npm run build       # genera dist/

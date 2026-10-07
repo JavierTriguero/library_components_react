@@ -4,5 +4,7 @@ import './tailwind.css';
 export default {
   parameters: {
     controls: { expanded: true },
+    // Un problema de accesibilidad (axe) hace fallar el test de la historia.
+    a11y: { test: 'error' },
   },
 };
