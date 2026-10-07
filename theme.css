@@ -61,9 +61,10 @@
       --color-primary-hover: oklch(67.3% 0.182 276.935);
       --color-primary-foreground: oklch(100% 0 0);
 
-      --color-danger: oklch(63.7% 0.237 25.331);
-      --color-danger-hover: oklch(70.4% 0.191 22.216);
-      --color-danger-foreground: oklch(100% 0 0);
+      /* Rojo claro con texto oscuro: el blanco sobre rojo no llega a 4.5:1 en modo oscuro. */
+      --color-danger: oklch(70.4% 0.191 22.216);
+      --color-danger-hover: oklch(80.8% 0.114 19.571);
+      --color-danger-foreground: oklch(13% 0.028 261.692);
 
       --color-success: oklch(72.3% 0.219 149.579);
       --color-success-foreground: oklch(21% 0.034 264.665);

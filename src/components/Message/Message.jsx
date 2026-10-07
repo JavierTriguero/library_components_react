@@ -7,7 +7,7 @@ import {
   XCircleIcon,
   XMarkIcon,
 } from '../../utils/icons.jsx';
-import { softSeverity } from '../../utils/severity.js';
+import { iconSeverity, softSeverity } from '../../utils/severity.js';
 
 const defaultIcons = {
   primary: InformationCircleIcon,
@@ -48,7 +48,9 @@ export const Message = forwardRef(function Message(
       )}
       {...props}
     >
-      {icon !== false && <span className="flex [&_svg]:size-5">{icon ?? <DefaultIcon />}</span>}
+      {icon !== false && (
+        <span className={cn('flex [&_svg]:size-5', iconSeverity[severity])}>{icon ?? <DefaultIcon />}</span>
+      )}
       <div className="flex-1">
         {title && <p className="font-semibold">{title}</p>}
         {(text ?? children) && <div className={cn(title && 'mt-1')}>{text ?? children}</div>}

@@ -39,7 +39,7 @@ export const Avatar = forwardRef(function Avatar(
       role="img"
       aria-label={alt ?? label}
       className={cn(
-        'inline-flex shrink-0 items-center justify-center overflow-hidden bg-muted font-medium text-muted-foreground select-none',
+        'inline-flex shrink-0 items-center justify-center overflow-hidden bg-muted font-medium text-foreground select-none',
         sizes[size],
         shapes[shape],
         className,

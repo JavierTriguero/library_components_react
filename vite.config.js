@@ -1,7 +1,10 @@
+/// <reference types="vitest/config" />
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { playwright } from '@vitest/browser-playwright';
 import pkg from './package.json' with { type: 'json' };
 
 // Todo lo que sea dependency o peerDependency se queda fuera del bundle:
@@ -27,8 +30,32 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'jsdom',
-    setupFiles: ['./src/test/setup.js'],
-    include: ['src/**/*.test.{js,jsx}'],
+    projects: [
+      {
+        // Tests unitarios (*.test.jsx) en jsdom.
+        extends: true,
+        test: {
+          name: 'unit',
+          environment: 'jsdom',
+          setupFiles: ['./src/test/setup.js'],
+          include: ['src/**/*.test.{js,jsx}'],
+        },
+      },
+      {
+        // Cada historia de Storybook se ejecuta como test en Chromium, con las comprobaciones de addon-a11y.
+        // https://storybook.js.org/docs/writing-tests/integrations/vitest-addon
+        extends: true,
+        plugins: [storybookTest({ configDir: resolve(import.meta.dirname, '.storybook') })],
+        test: {
+          name: 'storybook',
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [{ browser: 'chromium' }],
+          },
+        },
+      },
+    ],
   },
 });
