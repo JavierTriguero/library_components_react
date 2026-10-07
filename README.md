@@ -187,11 +187,12 @@ Se activa automáticamente cuando el sistema del usuario está en modo oscuro (`
 ```bash
 npm install
 npx playwright install chromium   # una vez: navegador para los tests de las historias
-npm run storybook   # catálogo de componentes en http://localhost:6006
+npm run storybook   # catálogo y documentación de componentes en http://localhost:6006
 npm test            # tests unitarios (jsdom) y de cada historia en Chromium, con accesibilidad (axe)
 npm run lint        # ESLint
 npm run format      # Prettier
 npm run build       # genera dist/
+npm run chromatic   # tests visuales en Chromatic (requiere CHROMATIC_PROJECT_TOKEN)
 ```
 
 Para que un cambio aparezca en la próxima versión, crea un changeset con `npx changeset` (ver [.changeset/README.md](.changeset/README.md)).

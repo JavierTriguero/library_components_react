@@ -5,3 +5,7 @@ storybook-static
 .DS_Store
 *.tgz
 coverage
+build-storybook.log
+chromatic.log
+chromatic-build-*.xml
+chromatic-diagnostics.json

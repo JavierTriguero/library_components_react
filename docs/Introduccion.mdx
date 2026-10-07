@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introducción" />
+
+# TrigReact
+
+Componentes React accesibles construidos con **Tailwind CSS v4** y **Headless UI**.
+
+- **Accesibles**: navegación por teclado, gestión del foco y atributos ARIA incluidos. Cada historia de este catálogo se comprueba con axe.
+- **Personalizables**: los colores son variables CSS que puedes sobrescribir.
+- **Modo oscuro** automático según la preferencia del sistema.
+- **Compatibles con Next.js** (App Router) y cualquier proyecto con React 18 o superior.
+
+## Instalación
+
+```bash
+npm install trigreact
+```
+
+Tu proyecto necesita **Tailwind CSS 4** o superior. En tu archivo CSS principal, importa el tema y añade la librería como fuente de Tailwind:
+
+```css
+@import 'tailwindcss';
+@import 'trigreact/theme.css';
+@source '../node_modules/trigreact/dist';
+```
+
+La ruta de `@source` es relativa a tu archivo CSS. Ajústala si tu CSS está en otra carpeta.
+
+## Uso
+
+```jsx
+import { Button, Input } from 'trigreact';
+
+export function Subscribe() {
+  return (
+    <form className="flex flex-col gap-4">
+      <Input label="Email" type="email" description="Nunca lo compartiremos." />
+      <Button type="submit">Suscribirme</Button>
+    </form>
+  );
+}
+```
+
+Cada componente tiene en el menú lateral su página **Docs** con la tabla de props y ejemplos que puedes modificar en vivo.
+
+## Personalizar el tema
+
+Sobrescribe las variables después de importar el tema:
+
+```css
+:root {
+  --color-primary: #0f766e;
+  --color-primary-hover: #14b8a6;
+}
+```
+
+Variables disponibles:
+
+- `--color-primary`, `--color-primary-hover`, `--color-primary-foreground`: acción principal y su texto.
+- `--color-danger`, `--color-danger-hover`, `--color-danger-foreground`: acciones destructivas y errores.
+- `--color-success`, `--color-warning`, `--color-info` (cada uno con su `-foreground`): estados.
+- `--color-background`, `--color-foreground`: fondo y texto de los componentes.
+- `--color-muted`, `--color-muted-foreground`: fondos suaves y texto secundario.
+- `--color-border`, `--color-ring`: bordes y anillo de foco.
+
+Para el modo oscuro, redefine las variables dentro de `@media (prefers-color-scheme: dark)`.
+
+## Convenciones
+
+- **Controlado o no**: los componentes con estado aceptan `value` + `onChange` (controlado) o `defaultValue` (no controlado). Lo mismo con `checked`/`defaultChecked`, `collapsed`/`defaultCollapsed`, etc.
+- **`severity`**: `primary`, `secondary`, `success`, `info`, `warning` o `danger`.
+- **`className`**: todos los componentes lo aceptan para añadir clases propias.

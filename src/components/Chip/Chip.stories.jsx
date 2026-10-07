@@ -7,5 +7,5 @@ export default {
 };
 
 export const Default = {};
-export const WithImage = { args: { label: 'Ana Torres', image: 'https://i.pravatar.cc/150?img=5' } };
+export const WithImage = { args: { label: 'Ana Torres', image: '/avatars/avatar-5.svg' } };
 export const Removable = { args: { removable: true } };
