@@ -49,19 +49,21 @@ Puedes verlos todos funcionando en Storybook (`npm run storybook`).
 
 ### Formulario
 
-| Componente     | Props principales                                                                                          |
-| -------------- | ---------------------------------------------------------------------------------------------------------- |
-| `Input`        | `label`, `description`, `error`, `disabled` y cualquier prop de `<input>`                                  |
-| `Textarea`     | `label`, `description`, `error`, `autoResize` y cualquier prop de `<textarea>`                             |
-| `Select`       | `options` (`{ value, label, disabled? }[]`), `value` / `defaultValue`, `onChange(value)`, `label`, `error` |
-| `Checkbox`     | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`, `indeterminate`                 |
-| `RadioGroup`   | `options`, `value` / `defaultValue`, `onChange(value)`, `label`, `error`, `orientation`                    |
-| `Switch`       | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`                                  |
-| `SelectButton` | `options`, `value` / `defaultValue`, `onChange(value)`, `multiple`                                         |
-| `ToggleButton` | `checked` / `defaultChecked`, `onChange(checked)`, `onLabel`, `offLabel`, `onIcon`, `offIcon`              |
-| `Rating`       | `value` / `defaultValue`, `onChange(value)`, `stars`, `cancel`, `readOnly`                                 |
-| `Slider`       | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `range`, `label`, `showValue`           |
-| `Knob`         | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `size`, `valueTemplate`                 |
+| Componente        | Props principales                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `Input`           | `label`, `description`, `error`, `disabled` y cualquier prop de `<input>`                                          |
+| `Textarea`        | `label`, `description`, `error`, `autoResize` y cualquier prop de `<textarea>`                                     |
+| `Select`          | `options` (`{ value, label, disabled? }[]`), `value` / `defaultValue`, `onChange(value)`, `label`, `error`         |
+| `Checkbox`        | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`, `indeterminate`                         |
+| `RadioGroup`      | `options`, `value` / `defaultValue`, `onChange(value)`, `label`, `error`, `orientation`                            |
+| `Switch`          | `label`, `description`, `checked` / `defaultChecked`, `onChange(checked)`                                          |
+| `SelectButton`    | `options`, `value` / `defaultValue`, `onChange(value)`, `multiple`                                                 |
+| `ToggleButton`    | `checked` / `defaultChecked`, `onChange(checked)`, `onLabel`, `offLabel`, `onIcon`, `offIcon`                      |
+| `Rating`          | `value` / `defaultValue`, `onChange(value)`, `stars`, `cancel`, `readOnly`                                         |
+| `Slider`          | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `range`, `label`, `showValue`                   |
+| `Knob`            | `value` / `defaultValue`, `onChange(value)`, `min`, `max`, `step`, `size`, `valueTemplate`                         |
+| `TagsInput`       | `value` / `defaultValue`, `onChange(tags)`, `label`, `max`, `validate`, `separators`, `allowDuplicates`            |
+| `DateRangePicker` | `value` / `defaultValue` (`[inicio, fin]`), `onChange(range)`, `presets`, `months`, `locale`, `minDate`, `maxDate` |
 
 ### Botones
 
@@ -82,28 +84,39 @@ Puedes verlos todos funcionando en Storybook (`npm run storybook`).
 | `ScrollPanel` | `aria-label`; define la altura con `className`                                   |
 | `Modal`       | `open`, `onClose`, `title`, `description`, `footer`, `size` (`sm` · `md` · `lg`) |
 
+### Superposiciones y búsqueda
+
+| Componente       | Props principales                                                                                                                              |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Drawer`         | `open`, `onClose`, `title`, `side` (`auto` · `bottom` · `top` · `right` · `left`), `footer`; en móvil se cierra arrastrando                    |
+| `Popover`        | `trigger`, `children` (o función con `close`), `title`, `placement`                                                                            |
+| `HoverCard`      | `trigger`, `children`, `placement`, `openDelay`, `closeDelay`                                                                                  |
+| `CommandPalette` | `groups` (`{ heading, items: { id, label, icon?, shortcut?, keywords?, onSelect? }[] }[]`), `open` / `onOpenChange`, `hotkey` (⌘K por defecto) |
+
 ### Visualización y estado
 
-| Componente        | Props principales                                              |
-| ----------------- | -------------------------------------------------------------- |
-| `Avatar`          | `image`, `label`, `icon`, `alt`, `size`, `shape`               |
-| `AvatarGroup`     | agrupa varios `Avatar`                                         |
-| `Badge`           | `value`, `severity`, `size`; sin `value` se muestra como punto |
-| `Tag`             | `value`, `icon`, `severity`, `rounded`                         |
-| `Chip`            | `label`, `image`, `icon`, `removable`, `onRemove`              |
-| `Message`         | `severity`, `title`, `text`, `icon`, `onClose`                 |
-| `ProgressBar`     | `value` (sin valor es indeterminada), `showValue`, `severity`  |
-| `ProgressSpinner` | `size`, `label`                                                |
-| `MeterGroup`      | `values` (`{ label, value, severity?, color? }[]`), `max`      |
-| `Skeleton`        | `shape`, `width`, `height`, `size`, `animation`                |
+| Componente        | Props principales                                               |
+| ----------------- | --------------------------------------------------------------- |
+| `Avatar`          | `image`, `label`, `icon`, `alt`, `size`, `shape`                |
+| `AvatarGroup`     | agrupa varios `Avatar`                                          |
+| `Badge`           | `value`, `severity`, `size`; sin `value` se muestra como punto  |
+| `Tag`             | `value`, `icon`, `severity`, `rounded`                          |
+| `Chip`            | `label`, `image`, `icon`, `removable`, `onRemove`               |
+| `Message`         | `severity`, `title`, `text`, `icon`, `onClose`                  |
+| `ProgressBar`     | `value` (sin valor es indeterminada), `showValue`, `severity`   |
+| `ProgressSpinner` | `size`, `label`                                                 |
+| `MeterGroup`      | `values` (`{ label, value, severity?, color? }[]`), `max`       |
+| `Skeleton`        | `shape`, `width`, `height`, `size`, `animation`                 |
+| `EmptyState`      | `title`, `description`, `icon` / `image`, `actions`, `bordered` |
 
 ### Utilidades
 
-| Componente  | Props principales                                                         |
-| ----------- | ------------------------------------------------------------------------- |
-| `BlockUI`   | `blocked`, `fullScreen`, `template`; el contenido bloqueado queda `inert` |
-| `Inplace`   | `display`, `children`, `active` / `defaultActive`, `closable`             |
-| `ScrollTop` | `target` (`window` · `parent`), `threshold`, `behavior`                   |
+| Componente    | Props principales                                                         |
+| ------------- | ------------------------------------------------------------------------- |
+| `BlockUI`     | `blocked`, `fullScreen`, `template`; el contenido bloqueado queda `inert` |
+| `Inplace`     | `display`, `children`, `active` / `defaultActive`, `closable`             |
+| `ScrollTop`   | `target` (`window` · `parent`), `threshold`, `behavior`                   |
+| `ThemeToggle` | Selector claro / oscuro / sistema; `storageKey`, `onChange`, `labels`     |
 
 `severity` acepta `primary`, `secondary`, `success`, `info`, `warning` y `danger`.
 
@@ -172,12 +185,48 @@ Estas variables también generan utilidades de Tailwind (`bg-primary`, `text-mut
 
 ### Modo oscuro
 
-Se activa automáticamente cuando el sistema del usuario está en modo oscuro (`prefers-color-scheme: dark`). Para cambiar los colores oscuros, sobrescríbelos dentro de la misma media query:
+Por defecto sigue la preferencia del sistema (`prefers-color-scheme`). Para forzarlo, pon `data-theme="dark"` o `data-theme="light"` en `<html>`; sin el atributo vuelve a seguir al sistema.
+
+La forma más sencilla es usar `ThemeToggle` (claro / oscuro / sistema), que guarda la elección en `localStorage`. Si necesitas tu propio control, usa el hook:
+
+```jsx
+import { useTheme } from 'trigreact';
+
+const { theme, resolvedTheme, setTheme } = useTheme(); // theme: 'light' | 'dark' | 'system'
+```
+
+Para evitar que la página parpadee en claro al cargar, añade este script en el `<head>` (por ejemplo, en el layout raíz de Next.js):
+
+```jsx
+import { getThemeScript } from 'trigreact';
+
+<script dangerouslySetInnerHTML={{ __html: getThemeScript() }} />;
+```
+
+Para cambiar los colores oscuros, sobrescríbelos en los dos casos (por sistema y forzado):
 
 ```css
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --color-primary: #2dd4bf;
+  }
+}
+:root[data-theme='dark'] {
+  --color-primary: #2dd4bf;
+}
+```
+
+Si usas la variante `dark:` de Tailwind en tu propio código, haz que siga la misma regla:
+
+```css
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:not(:where([data-theme='light'], [data-theme='light'] *)) {
+      @slot;
+    }
   }
 }
 ```
