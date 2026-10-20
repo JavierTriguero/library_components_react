@@ -62,7 +62,8 @@
     "tailwindcss": ">=4"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.10"
+    "@headlessui/react": "^2.2.10",
+    "@floating-ui/react": "^0.26.16"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",
