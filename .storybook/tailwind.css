@@ -3,8 +3,15 @@
 @import '../theme.css';
 @source "../src";
 
-/* Fondo del lienzo acorde al tema (claro u oscuro según el sistema). */
-body {
+/*
+ * Fondo y color de texto acordes al tema (claro u oscuro) en:
+ * - el lienzo de cada historia (body);
+ * - los ejemplos incrustados en las páginas Docs (.docs-story), que Storybook pinta
+ *   siempre en blanco: sin esto, en modo oscuro el texto claro de los componentes
+ *   sin fondo propio (Fieldset, Divider...) quedaría blanco sobre blanco.
+ */
+body,
+.docs-story {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
